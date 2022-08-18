@@ -1,0 +1,56 @@
+
+<div class="">
+    <div class="columns">
+        <div class="column is-three-quarters-mobile is-half-tablet is-half-desktop is-one-third-widescreen is-half-fullhd img-section">
+          <img src="../../../assets/images/note.jpg" alt="" class="">
+        </div>
+
+        <div class="column form-section">
+            <form [formGroup]="createAccountForm" (ngSubmit)="submit()">
+                <div>
+                    <h1 class="is-size-3" style="color:#71c5ee">Get Started</h1>
+                    <p class="">Create your account here</p>
+                </div>
+
+                <div class="mb-5">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Enter your firstname</mat-label>
+                      <input matInput placeholder="John" formControlName="first_name" required>
+                    </mat-form-field>
+                </div>
+
+                <div class="mb-5">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Enter your lastname</mat-label>
+                      <input matInput placeholder="Doe" formControlName="last_name" required>
+                    </mat-form-field>
+                </div>
+
+                <div class="mb-5">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Enter your email</mat-label>
+                      <input matInput placeholder="johndoe@mail.com" formControlName="email" required>
+                      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                        <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+
+                <div class="mt-5">
+                    <button [disabled]="createAccountForm.invalid" type="submit" mat-raised-button style="background-color: #71c5ee !important; color: white !important;">Submit</button>
+                </div>
+                <div class="pt-3">
+                    <p>Already have an account ? <a routerLink="/" style="color:#71c5ee;">Proceed to Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

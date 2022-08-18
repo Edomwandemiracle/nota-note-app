@@ -1,0 +1,40 @@
+<div class="">
+    <div class="columns">
+        <div class="column is-three-quarters-mobile is-half-tablet is-half-desktop is-one-third-widescreen is-half-fullhd img-section">
+          <img src="../../../assets/images/note.jpg" alt="" class="">
+        </div>
+
+        <div class="column form-section">
+            <form [formGroup]="loginForm" (ngSubmit)="submit()">
+                <div>
+                    <h1 class="is-size-3" style="color:#71c5ee">Welcome Back</h1>
+                    <p class="">Proceed to login</p>
+                </div>
+                <div class="my-5">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Enter your email</mat-label>
+                      <input matInput placeholder="pat@example.com" formControlName="email" required>
+                      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                        <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+
+                <div class="my-5">
+                    <button type="submit" [disabled]="loginForm.invalid" mat-raised-button  style="background-color: #71c5ee !important; color: white !important;">Submit</button>
+                </div>
+                <div class="">
+                    <p>Don't have an account ? <a routerLink="/create-account" style="color:#71c5ee;">Sign up here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

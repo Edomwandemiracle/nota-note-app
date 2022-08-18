@@ -1,0 +1,30 @@
+<div class="main-container">
+  <div class="search-bar-container">
+    <div class="columns">
+      <div class="column is-three-quarters">
+        <div class="field">
+          <p class="control has-icons-left">
+            <input class="input is-rounded" type="text" (ngModelChange)="search(searchControl)"  [formControl]="searchControl" placeholder="Search" />
+            <span class="icon is-small is-left">
+              <i class="fas fa-search"></i>
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="column">
+         <button class="button is-info" style="width: 100%;" (click)="gotoDetails()">New Note</button>
+      </div>
+    </div>
+    <div *ngIf="notes && notes.length > 0">
+      <button class="btn-sort" (click) ='sortDescendingOrder()'><i class="fas fa-arrow-down-a-z" style="font-size: 20px; color:#71c5ee"></i></button>
+      <button class="btn-sort" (click) ='sortAscendingOrder()'><i class="fas fa-arrow-up-z-a" style="font-size: 20px; color:#71c5ee"></i></button>
+    </div>
+  </div>
+
+  <div class="note-list">
+      <app-note-card *ngFor="let note of notes" [note]="note" (delete)="deleteNote(note.id)"></app-note-card>
+    <div *ngIf="notes && notes.length === 0">
+      No Note Available
+    </div>
+  </div>
+</div>

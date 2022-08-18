@@ -1,0 +1,20 @@
+<div class="layout-box">
+  <div class="top-bar px-5 py-3">
+    <div class="ml-6"> <h1>Nota</h1></div>
+
+    <div class="user-details mr-6">
+      <div>
+        <p>
+          <span class="mr-1"><i class="fa fa-user"></i></span>
+          {{currentUser.firstName}}</p>
+      </div>
+       <div class="ml-6">
+        <span (click)="logOut()"><i class="fa fa-arrow-right-from-bracket" style="color:white;"></i></span>
+      </div>
+    </div>
+  </div>
+  <div class="page-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+

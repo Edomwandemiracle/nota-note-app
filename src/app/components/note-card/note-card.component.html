@@ -1,0 +1,19 @@
+<div #container class="note-card-container">
+  <a [routerLink]="['../details', note.id]">
+
+  <div class="note-card-content" #notepdf>
+    <h1 class="note-card-title">{{note.title}}</h1>
+    <div #bodyText class="note-card-body">
+      <p>{{note.content}}</p>
+      <div #truncation class="fade-out-truncate"></div>
+    </div>
+  </div>
+</a>
+  <div class="download-btn" (click)="generatePDF()">
+    <span class="icon" >
+      <i class="fa-solid fa-download"></i>
+    </span>
+    <span>download</span>
+  </div>
+  <div class="delete-btn" (click)="deleteButton()"></div>
+</div>
